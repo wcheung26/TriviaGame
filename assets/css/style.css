@@ -34,7 +34,6 @@ h1 {
 #timeTag, #question {
 	font-size: 22px;
 	padding-bottom: 20px;
-
 }
 
 #startButton {
@@ -67,7 +66,12 @@ h1 {
 #options {
 	width: 60%;
 	margin: 0 auto;
+	font-weight: bold;
 }
+/*#options p {
+	font-weight: bold;
+
+}*/
 .button {
 	padding: 10px 50px;
 	transition: background-color 0.55s;
