@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Trivia Game</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+	<h1>Hong Kong Trivia Game</h1>
+	<div id="UI">
+		<div id="startButton">Start</div>
+		<div id="game">
+			<p>Time Remaining: <span id='timer'><span></p>
+			<p id="question"></p>
+			<p id="options"></p>
+
+			<div id="reveal">
+				<div id="correct">
+					<p>Correct!</p>
+				</div>
+				<div id="wrong">
+					<p>Nope!</p>
+					<p>The correct answer was: <span id="answer"></span></p>
+				</div>
+				<div id="outOfTime">
+					<p>Out of Time!</p>
+					<p>The correct answer was: <span id="answer"></span></p>
+				</div>
+				<img src="#" id="graphic">
+			</div>
+			<div id="endGame">
+				<p>All done, here's how you did!</p>
+				<p>Correct answers: <span id="countCorrect"></span></p>
+				<p>Incorrect answers: <span id="countIncorrect"></span></p>
+				<p>Unanswered: <span id="countUnanswered"></span></p>
+				<p id="restart">Start Over?</p>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="assets/javascript/app.js"></script>
+
+</body>
+</html>
