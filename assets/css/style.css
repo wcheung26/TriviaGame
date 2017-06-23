@@ -1,11 +1,82 @@
+html {
+	background-image: url('../images/hongkong.jpg');
+	background-size: cover;
+	background-position: center center fixed;
+	background-repeat: no-repeat;
+	height: 100%;
+}
+
 body {
 	text-align: center;
-	padding-top: 100px;
+	background: none;
+	height: 100%;
+}
+
+.wrap {
+	position: absolute;
+	padding: 50px;
+	min-width: 420px;
+	top: 5%;
+	bottom: 5%;
+	left: 10%;
+	right: 10%;
+	background: rgba(255,255,255,0.7);
+}
+
+h1 {
+	margin-bottom: 50px;
+}
+
+#UI {
+	font-size: 18px;
+}
+
+#timeTag, #question {
+	font-size: 22px;
+	padding-bottom: 20px;
+
 }
 
 #startButton {
 	background-color: lightblue;
-	padding: 20px 180px;
+	padding: 22px 180px;
 	margin-top: 100px;
 	display: inline-block;
+	border-radius: 20px;
+	transition: background-color 1s;
+}
+
+#startButton:hover {
+	background-color: #8BB9FE;
+}
+
+
+#restart {
+	opacity: 0.7;
+	background-color: orange;
+	padding: 22px 180px;
+	margin-top: 50px;
+	display: inline-block;
+	border-radius: 20px;
+	transition: opacity 1s;
+}
+#restart:hover {
+	opacity: 1;
+}
+
+#options {
+	width: 60%;
+	margin: 0 auto;
+}
+.button {
+	padding: 10px 50px;
+	transition: background-color 0.55s;
+	border-radius: 20px;
+}
+.button:hover {
+	background-color: #8BB9FE;
+}
+
+#graphic img {
+	max-height: 225px;
 }

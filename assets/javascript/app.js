@@ -4,7 +4,7 @@ $("#endGame").hide();
 
 
 // Set seconds per question
-var difficulty = 10;
+var difficulty = 20;
 
 // Global variables
 var round = 0;
@@ -19,39 +19,41 @@ function gameReset() {
 	countUnanswered = 0;
 	hideAll();
 	$("#startButton").show();
+	$("#game").hide();
+	$("#endGame").hide();
 }
 
 //Question bank
 var questions = [
 	{
-	question: "Question 1",
-	options: ["Option 1", "Option 2", "Option 3", "Option 4"],
-	answer: "Option 1",
-	image: ""
+	question: "Kowloon Walled City once had a population density of?",
+	options: ["3,250 people per square mile", "7,250 people per square mile", "725,000 people per square mile", "3,250,000 people per square mile"],
+	answer: "3,250,000 people per square mile",
+	image: "assets/images/crowd.gif"
 	},
 	{
-	question: "Question 2",
-	options: ["Option 1", "Option 2", "Option 3", "Option 4"],
-	answer: "Answer 2",
-	image: ""
+	question: "In 2012, how much USD did a Hong Kong billionaire offer to any man able to woo and marry his lesbian daughter?",
+	options: ["$1 million", "$10 million", "$25 million", "$65 million"],
+	answer: "$65 million",
+	image: "assets/images/makeitrain.gif"
 	},
 	{
-	question: "Question 3",
-	options: ["Option 1", "Option 2", "Option 3", "Option 4"],
-	answer: "Answer 3",
-	image: ""
+	question: "How many skyscrapers does Hong Kong have?",
+	options: ["589", "755", "1,223", "1,502"],
+	answer: "1,223",
+	image: "assets/images/skyscraper.gif"
 	},
 	{
-	question: "Question 4",
-	options: ["Option 1", "Option 2", "Option 3", "Option 4"],
-	answer: "Answer 4",
-	image: ""
+	question: "What percentage of Hong Kong Island is urbanized?",
+	options: ["25%", "46%", "78%", "85%"],
+	answer: "25%",
+	image: "assets/images/nature.gif"
 	},
 	{
-	question: "Question 5",
-	options: ["Option 1", "Option 2", "Option 3", "Option 4"],
-	answer: "Answer 5",
-	image: ""
+	question: "Hong Kong's subway system is on-time ____ of the time?",
+	options: ["34%", "78%", "94%", "99%"],
+	answer: "99%",
+	image: "assets/images/punctual.gif"
 	}
 ];
 
@@ -75,6 +77,7 @@ var timer = {
 	count: function() {
 		if (timer.s === 0) {
 			timer.pause();
+			outOfTime();
 			console.log("times up")
 			return;
 		} else {
@@ -124,17 +127,21 @@ function next() {
 	round ++;
 	timer.pause();
 	if (round === 5) {
-		setTimeout(endGame,2000);
+		setTimeout(endGame,3000);
 	} else {
-		setTimeout(function(){displayNum(round)},2000);
+		setTimeout(function(){displayNum(round)},4000);
 
 	}
 };
 
 // End game
 function endGame() {
+	$("#countCorrect").text(countCorrect);
+	$("#countIncorrect").text(countIncorrect);
+	$("#countUnanswered").text(countUnanswered);
+	
 	hideAll();
-	$("#graphic").hide();
+	$("#reveal").hide();
 	$("#endGame").show();
 };
 
@@ -159,6 +166,7 @@ function wrong() {
 };
 
 function outOfTime() {
+	console.log("out of time")
 	$("#reveal").show();
 	hideAll();
 	$("#outOfTime").show();
@@ -172,23 +180,26 @@ function hideAll() {
 	$("#correct").hide();
 	$("#wrong").hide();
 	$("#outOfTime").hide();
+	// $("#graphic").hide();
 };
 
 function displayNum(q) {
 	hideAll();
+	$("#reveal").hide();
 	$("#question").show();
 	$("#options").show();
-	//Start timer
+	// Start timer
 	timer.start();
-	//Display question
+	// Display question
 	$("#question").text(questions[q].question)
-	//Display options
+	// Display options
 	var optionsList = questions[q].options
 	$("#options").text("")
 	for (var i = 0; i < optionsList.length; i++) {
 		$("#options").append("<p class='button'>" + optionsList[i] + "</p>")
 	};
-
+	// Correct answer
+	$("#answer").text(questions[q].answer)
 	//Change gif
 	$("#graphic").html("<img src='" + questions[q].image + "'>")
 	//When an option is clicked
